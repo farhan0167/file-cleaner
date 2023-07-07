@@ -19,10 +19,13 @@ git clone https://github.com/farhan0167/file-cleaner
 ```
 2. Copy the main.py script to the folder where you have all your resumes
 3. Run the script. Lets say you want to delete pdf files older than 30 days:
+
+
+**Note** Remember this is a destructive action. Once deleted, you cannot recover these files
 ```bash
 python3 main.py --days 30
 ```
-4. The previous command will mount on the directory where the script is, but lets say you want to delete files within a specific folder, i.e, Example_Folder:
+The previous command will mount on the directory where the script is, but lets say you want to delete files within a specific folder, i.e, Example_Folder:
 ```bash
 python3 main.py --days 30 --target Example_Folder
 ```
@@ -33,4 +36,4 @@ python3 main.py --days 30 --target Example_Folder
   --days DAYS      Number of days to look behind to consider a file outdated. Default value is 365 days
   --target TARGET  The directory to clean up. By default it will mount on current directory
 ```
-** Note ** Remember this is a destructive action. Once deleted, you cannot recover these files
+**Note** Remember this is a destructive action. Once deleted, you cannot recover these files
