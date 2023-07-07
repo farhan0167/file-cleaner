@@ -27,4 +27,10 @@ python3 main.py --days 30
 python3 main.py --days 30 --target Example_Folder
 ```
 
+### Arguments
+```
+  -h, --help       show this help message and exit
+  --days DAYS      Number of days to look behind to consider a file outdated. Default value is 365 days
+  --target TARGET  The directory to clean up. By default it will mount on current directory
+```
 ** Note ** Remember this is a destructive action. Once deleted, you cannot recover these files

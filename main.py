@@ -5,7 +5,7 @@ import datetime
 import argparse
 
 parser = argparse.ArgumentParser(description='Process arguments for file removal Manual')
-parser.add_argument('--days', type=int, default=10,
+parser.add_argument('--days', type=int, default=365,
                     help='Number of days to look behind to consider a file outdated. Default value is 10')
 parser.add_argument('--target', type=str, default=None,
                     help='The directory to clean up. By default it will mount on current directory')
