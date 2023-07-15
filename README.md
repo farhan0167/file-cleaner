@@ -27,13 +27,23 @@ python3 main.py --days 30
 ```
 The previous command will mount on the directory where the script is, but lets say you want to delete files within a specific folder, i.e, Example_Folder:
 ```bash
-python3 main.py --days 30 --target Example_Folder
+python3 main.py --days 30 --target 'Example Folder'
 ```
+
+### Clean based on Search Term
+You can now specify a search term or file name to look for when wiping out a directory.
+
+```bash
+python3 main.py --days 0 --target 'Example Folder' --search 'Example Search Term'
+```
+
+This action will look into the Example Directory for files that have Example Search Term name, and delete them if they are 0 days old.
 
 ### Arguments
 ```
   -h, --help       show this help message and exit
   --days DAYS      Number of days to look behind to consider a file outdated. Default value is 365 days
   --target TARGET  The directory to clean up. By default it will mount on current directory
+  --search SEARCH  The search term to clean up. By default it will be None
 ```
 **Note** Remember this is a destructive action. Once deleted, you cannot recover these files

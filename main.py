@@ -33,20 +33,19 @@ def process_files(directory):
                     formatted_time = time.ctime(creation_time)
                     #if search term provided, then only look for search term files, else just remove based on time
                     if args.search:
-                        search_term = re.search(args.search, filepath)
+                        search_term = re.search(args.search, filename) #use filename instead of filepath
                         if search_term:
                             print("-----------------------")
                             print(f"Outdated File: {filepath} creation time:", formatted_time)
                             #delete operation
-                            #os.remove(filepath)
-                            print(filepath)
+                            os.remove(filepath)
                             print(f"Deleted File: {filepath}")
                             print("-----------------------")
                     else:    
                         print("-----------------------")
                         print(f"Outdated File: {filepath} creation time:", formatted_time)
                         #delete operation
-                        #os.remove(filepath)
+                        os.remove(filepath)
                         print(f"Deleted File: {filepath}")
                         print("-----------------------")
 
