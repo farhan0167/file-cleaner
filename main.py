@@ -3,12 +3,15 @@ import os
 import time
 import datetime
 import argparse
+import re
 
 parser = argparse.ArgumentParser(description='Process arguments for file removal Manual')
 parser.add_argument('--days', type=int, default=365,
                     help='Number of days to look behind to consider a file outdated. Default value is 10')
 parser.add_argument('--target', type=str, default=None,
                     help='The directory to clean up. By default it will mount on current directory')
+parser.add_argument('--search', type=str, default=None,
+                    help='The search term to clean up. By default it will be None')
 args = parser.parse_args()
 
 def process_files(directory):
@@ -28,12 +31,20 @@ def process_files(directory):
                 time_now_unix = time.mktime(time_now)
                 if creation_time < time_now_unix-unix_tm:
                     formatted_time = time.ctime(creation_time)
-                    print("-----------------------")
-                    print(f"Outdated File: {filepath} creation time:", formatted_time)
-                    #delete operation
-                    os.remove(filepath)
-                    print(f"Deleted File: {filepath}")
-                    print("-----------------------")
+                    if args.search:
+                        print("-----------------------")
+                        print(f"Outdated File: {filepath} creation time:", formatted_time)
+                        #delete operation
+                        os.remove(filepath)
+                        print(f"Deleted File: {filepath}")
+                        print("-----------------------")
+                    else:    
+                        print("-----------------------")
+                        print(f"Outdated File: {filepath} creation time:", formatted_time)
+                        #delete operation
+                        os.remove(filepath)
+                        print(f"Deleted File: {filepath}")
+                        print("-----------------------")
 
         elif os.path.isdir(filepath):
             # Recursively process files in the subdirectory
