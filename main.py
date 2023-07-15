@@ -32,17 +32,19 @@ def process_files(directory):
                 if creation_time < time_now_unix-unix_tm:
                     formatted_time = time.ctime(creation_time)
                     if args.search:
+                        search_term = re.search(args.search, filepath)
                         print("-----------------------")
                         print(f"Outdated File: {filepath} creation time:", formatted_time)
                         #delete operation
-                        os.remove(filepath)
+                        #os.remove(filepath)
+                        print(filepath)
                         print(f"Deleted File: {filepath}")
                         print("-----------------------")
                     else:    
                         print("-----------------------")
                         print(f"Outdated File: {filepath} creation time:", formatted_time)
                         #delete operation
-                        os.remove(filepath)
+                        #os.remove(filepath)
                         print(f"Deleted File: {filepath}")
                         print("-----------------------")
 
