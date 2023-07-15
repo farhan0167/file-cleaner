@@ -7,7 +7,7 @@ import re
 
 parser = argparse.ArgumentParser(description='Process arguments for file removal Manual')
 parser.add_argument('--days', type=int, default=365,
-                    help='Number of days to look behind to consider a file outdated. Default value is 10')
+                    help='Number of days to look behind to consider a file outdated. Default value is 365 days')
 parser.add_argument('--target', type=str, default=None,
                     help='The directory to clean up. By default it will mount on current directory')
 parser.add_argument('--search', type=str, default=None,
